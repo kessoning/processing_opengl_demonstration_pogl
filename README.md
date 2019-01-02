@@ -13,4 +13,4 @@ MIT License
 
 Copyright (c) 2019 Giovanni Muzio - kesson
 
-If this code is helpful to you, please give me support by giving the original attribution to me.
+If this code is helpful to you, please show me support by giving me the original attribution.
