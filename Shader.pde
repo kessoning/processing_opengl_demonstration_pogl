@@ -28,6 +28,8 @@ void initShader() {
   pgl.genBuffers(1, intBuffer);
   // The the ID from the int buffer
   vertexVboId = intBuffer.get(0);
+  // Allocate the float array in a byte buffer
+  byteBuf = ByteBuffer.allocateDirect(shaderPoints.length * Float.BYTES); //4 bytes per float
   // End the PGL
   endPGL();
 }
@@ -49,7 +51,8 @@ void updateShader() {
   }
 
   // Allocate the float array in a byte buffer
-  byteBuf = ByteBuffer.allocateDirect(shaderPoints.length * Float.BYTES); //4 bytes per float
+  // This has been moved to the Shader setup because it was draining the memory, thanks to Neil Smith for the fix
+  // byteBuf = ByteBuffer.allocateDirect(shaderPoints.length * Float.BYTES); //4 bytes per float
   // Order the byte byuffer
   byteBuf.order(ByteOrder.nativeOrder());
   // Converts the byte buffer in a float buffer
